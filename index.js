@@ -5,7 +5,7 @@ import { configDotenv } from 'dotenv';
 import jsonwebtoken from 'jsonwebtoken';
 configDotenv();
 const app = express();
-app.use(cors({origin:process.env.front,credentials:true}));
+app.use(cors({origin:process.env.FRONT,credentials:true}));
 app.use(cookieParser());
 app.get('/cookie',async (req,res,next) => {
     const jwt = jsonwebtoken.sign({id:1},process.env.SECRET,{expiresIn:'7d'})
