@@ -8,6 +8,7 @@ const app = express();
 app.use(cors({origin:"https://font-cookie-tester.vercel.app",credentials:true}));
 app.use(cookieParser());
 app.get('/cookie',async (req,res,next) => {
+    console.log('req came on cookie');
     const jwt = jsonwebtoken.sign({id:1},process.env.SECRET,{expiresIn:'7d'})
     res.cookie("jwt", jwt, {
       httpOnly: true,
