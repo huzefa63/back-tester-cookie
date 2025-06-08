@@ -21,6 +21,7 @@ app.get('/cookie',async (req,res,next) => {
 
 app.get('/verify',async (req,res,next) => {
     const {jwt} = req.cookies;
+    console.log(jwt);
     jsonwebtoken.verify(jwt,process.env.SECRET);
     res.status(200).json({status:'success'});
 })
